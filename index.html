@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>METANTENNA SOLUTIONS LIMITED</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            color: #e0e0e0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        .card-container {
+            max-width: 500px;
+            width: 100%;
+            background: rgba(20, 20, 20, 0.9);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 60px 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 0.8s ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #3b82f6, transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .logo-container {
+            text-align: center;
+            margin-bottom: 40px;
+            animation: slideDown 1s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .logo {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 20px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+            transition: transform 0.3s ease;
+            background: transparent;
+        }
+
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .logo:hover {
+            transform: scale(1.15);
+        }
+
+        .company-name {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+
+        .tagline {
+            font-size: 14px;
+            color: #9ca3af;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+        }
+
+        .divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            margin: 40px 0;
+        }
+
+        .about-section {
+            margin-bottom: 40px;
+            animation: fadeIn 1.2s ease-out;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 16px;
+            letter-spacing: 0.5px;
+        }
+
+        .about-text {
+            font-size: 15px;
+            line-height: 1.7;
+            color: #9ca3af;
+            font-weight: 400;
+        }
+
+        .person-info {
+            margin-bottom: 40px;
+            animation: fadeIn 1.4s ease-out;
+        }
+
+        .name {
+            font-size: 24px;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 6px;
+        }
+
+        .title {
+            font-size: 16px;
+            color: #3b82f6;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        .contact-section {
+            margin-bottom: 40px;
+            animation: fadeIn 1.6s ease-out;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            padding: 16px 20px;
+            margin-bottom: 12px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            text-decoration: none;
+            color: #e0e0e0;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .contact-item:hover {
+            background: rgba(59, 130, 246, 0.1);
+            border-color: rgba(59, 130, 246, 0.3);
+            transform: translateX(5px);
+        }
+
+        .contact-icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 16px;
+            opacity: 0.7;
+        }
+
+        .contact-label {
+            font-size: 12px;
+            color: #9ca3af;
+            margin-bottom: 4px;
+        }
+
+        .contact-value {
+            font-size: 15px;
+            color: #e0e0e0;
+        }
+
+        .actions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 30px;
+            animation: fadeIn 1.8s ease-out;
+        }
+
+        .action-btn {
+            padding: 16px;
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 12px;
+            color: #3b82f6;
+            text-decoration: none;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .action-btn:hover {
+            background: rgba(59, 130, 246, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(59, 130, 246, 0.2);
+        }
+
+        .action-btn.primary {
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            border-color: transparent;
+            color: white;
+        }
+
+        .action-btn.primary:hover {
+            background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+            box-shadow: 0 5px 20px rgba(59, 130, 246, 0.4);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            animation: fadeIn 2s ease-out;
+        }
+
+        .social-icon {
+            width: 44px;
+            height: 44px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #9ca3af;
+            text-decoration: none;
+            font-size: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background: rgba(59, 130, 246, 0.15);
+            border-color: rgba(59, 130, 246, 0.3);
+            color: #3b82f6;
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 600px) {
+            .card-container {
+                padding: 40px 30px;
+            }
+
+            .company-name {
+                font-size: 24px;
+            }
+
+            .name {
+                font-size: 20px;
+            }
+
+            .actions {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .vcard-download {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="card-container">
+        <div class="logo-container">
+            <div class="logo"><img src="logo.png" alt="Company Logo"></div>
+            <h1 class="company-name">METANTENNA SOLUTIONS LIMITED</h1>
+            <p class="tagline">Merging Engineering, Technology, and Antennas</p>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="about-section">
+            <h2 class="section-title">About Us</h2>
+            <p class="about-text">
+                We are a Cyprus-based deep-tech start-up specialising in advanced RF hardware and metamaterials 
+                for mission critical defence and security systems. Our work includes miniature wideband 
+                antennas, low-observable metasurfaces, polarization-shaping structures, and Reconfigurable 
+                Intelligent Surfaces, supported by high-fidelity simulation, prototyping, and expert RF consulting.
+            </p>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="person-info">
+            <div class="name">Dr Anastasios Christodoulides</div>
+            <div class="title">CEO and Founder</div>
+        </div>
+
+        <div class="contact-section">
+            <a href="mailto:info@metantenna.tech" class="contact-item">
+                <svg class="contact-icon" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+                    <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+                </svg>
+                <div>
+                    <div class="contact-label">Email</div>
+                    <div class="contact-value">info@metantenna.tech</div>
+                </div>
+            </a>
+
+            <a href="tel:+35799009025" class="contact-item">
+                <svg class="contact-icon" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
+                </svg>
+                <div>
+                    <div class="contact-label">Phone</div>
+                    <div class="contact-value">+35799009025</div>
+                </div>
+            </a>
+          
+        </div>
+
+        <div class="actions">
+            <a href="#" class="action-btn primary" id="saveContact">Save Contact</a>
+        </div>
+
+        <div class="divider"></div>
+
+        
+    </div>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=520205835"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', '520205835');
+        
+        // Track page view
+        gtag('event', 'page_view', {
+            page_title: 'Digital Business Card',
+            page_location: window.location.href
+        });
+    </script>
+
+    <script>
+        // vCard generation and download
+        document.getElementById('saveContact').addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Track the save contact event
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'save_contact', {
+                    event_category: 'engagement',
+                    event_label: 'vCard Download'
+                });
+            }
+            
+            const vcard = `BEGIN:VCARD
+VERSION:3.0
+FN:Anastasios Christodoulides
+N:Christodoulides;Anastasios;;;
+ORG:METANTENNA SOLUTIONS LIMITED
+TITLE:CEO and Founder
+EMAIL;TYPE=INTERNET:info@metantenna.tech
+TEL;TYPE=WORK,VOICE:+35799009025
+NOTE:Merging Engineering, Technology, and Antennas
+END:VCARD`;
+
+            const blob = new Blob([vcard], { type: 'text/vcard' });
+            const url = window.URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = 'Anastasios Christodoulides - MetantennaSolutions.vcf';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            window.URL.revokeObjectURL(url);
+        });
+
+        // Track link clicks
+        document.querySelectorAll('a[href^="http"]').forEach(link => {
+            link.addEventListener('click', function() {
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'click', {
+                        event_category: 'outbound',
+                        event_label: this.href
+                    });
+                }
+            });
+        });
+
+        // Track contact method clicks
+        document.querySelectorAll('.contact-item').forEach(item => {
+            item.addEventListener('click', function() {
+                if (typeof gtag !== 'undefined') {
+                    const label = this.querySelector('.contact-label').textContent;
+                    gtag('event', 'contact_click', {
+                        event_category: 'engagement',
+                        event_label: label
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
